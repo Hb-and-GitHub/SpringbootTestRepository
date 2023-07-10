@@ -17,6 +17,7 @@ public class Test002 {
     public String MD5method(String num){
         String salt = "qwer";
         //MD5加密
+        int nums = 1;
         return DigestUtils.md5DigestAsHex((salt+num+salt).getBytes()).toUpperCase();
     }
     @Test
