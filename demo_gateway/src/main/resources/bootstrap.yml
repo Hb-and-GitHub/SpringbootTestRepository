@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: bluegrass-gateway
+  profiles:
+    active: dev
+server:
+  port: 9080

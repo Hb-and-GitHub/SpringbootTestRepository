@@ -1,0 +1,17 @@
+server:
+  port: 8761
+eureka:
+  hostname: localhost
+  client:
+    fetchRegistry: false
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://${eureka.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 1000
+  #是否注册到eureka
+#eureka.client.registerWithEureka=false
+  #是否从eureka中拉取注册信息
+
+

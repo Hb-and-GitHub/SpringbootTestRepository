@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>简易前端登录页面</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+</head>
+
+<body>
+
+<div id="app">
+
+    <h1>简易前端登录页面</h1>
+
+    <form @submit.prevent="submitForm">
+
+        <div>
+
+            <label for="username">用户名：</label>
+
+            <input type="text" id="username" v-model="username" required>
+
+        </div>
+
+        <div>
+
+            <label for="password">密码：</label>
+
+            <input type="password" id="password" v-model="password" required>
+
+        </div>
+
+        <button type="submit">登录</button>
+
+    </form>
+
+</div>
+
+
+
+<script>
+
+    new Vue({
+
+        el: '#app',
+
+        data: {
+
+            username: '',
+
+            password: ''
+
+        },
+
+        methods: {
+
+            submitForm() {
+
+                if (this.username && this.password) {
+
+                    alert('登录成功！');
+
+                } else {
+
+                    alert('请输入用户名和密码！');
+
+                }
+
+            }
+
+        }
+
+    });
+
+</script>
+
+</body>
+
+</html>
+
