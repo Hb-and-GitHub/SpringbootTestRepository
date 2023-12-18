@@ -4,9 +4,7 @@ package com.hb.demo.test_hb;
 import org.junit.Test;
 import org.springframework.util.DigestUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * 测试MD5加密方法
@@ -44,6 +42,21 @@ public class Test002 {
         String message = str.replace("${str_name}",str_name)
                 .replace("${Monday}",Monday);
         System.out.println(message);
+    }
+
+    public void sortSet(){
+        Scanner sc = new Scanner(System.in);
+
+        HashSet set = new HashSet<>();
+
+        for(int i = 0;i<5;i++){
+            int num = sc.nextInt();
+            set.add(num);
+        }
+
+        for(Object num : set){
+            System.out.println(num);
+        }
     }
 
 }

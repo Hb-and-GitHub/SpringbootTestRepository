@@ -1,6 +1,6 @@
 package com.hb.demo.service.impl;
 
-import com.hb.demo.enity.user;
+import com.hb.demo.enity.User;
 import com.hb.demo.enity.vo.Page;
 import com.hb.demo.service.userService;
 import org.springframework.stereotype.Service;
@@ -15,12 +15,12 @@ public class userServiceImpl implements userService {
 
 
     @Override
-    public List<user> get_users() {
+    public List<User> get_users() {
         return userMapper.getUsers();
     }
 
     @Override
-    public void insertUser(user user) {
+    public void insertUser(User user) {
         userMapper.insertUsers(user);
     }
 
@@ -28,9 +28,9 @@ public class userServiceImpl implements userService {
     public Page findByPage(Integer pageNum, Integer pageSize) {
 
             Integer offset = (pageNum-1)*pageSize;
-            List<user> users = userMapper.findByPage(offset, pageSize);
-            Page<user> page = new Page<>();
-            page.setData(users);
+            List<User> Users = userMapper.findByPage(offset, pageSize);
+            Page<User> page = new Page<>();
+            page.setData(Users);
         try {
             Integer total = userMapper.countUsers();
             page.setTotal(total);
