@@ -11,6 +11,7 @@ import com.hb.demo.utils.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.junit.Test;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -110,6 +111,19 @@ public class UserController{
         else{
             return "请重试";
         }
+
+    }
+
+    @Resource
+    private RedisTemplate redisTemplate;
+
+    @GetMapping("/redis")
+    public String redisTestByInter(){
+        if(redisTemplate != null){
+            redisTemplate.opsForValue().set("keyTest","ValueTest",30,TimeUnit.SECONDS);
+            return "redis测试成功,测试数据为："+redisTemplate.opsForValue().get("keyTest");
+        }
+        return "false";
 
     }
 }

@@ -7,5 +7,7 @@ public class HutoolTest {
     public static void main(String[] args) {
          String str = "a";
         System.out.println("test");
+        int i = Runtime.getRuntime().availableProcessors();
+        System.out.println("CPU核数："+i);
     }
 }

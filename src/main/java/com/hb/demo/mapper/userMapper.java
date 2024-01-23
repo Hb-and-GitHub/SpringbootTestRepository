@@ -29,4 +29,8 @@ public interface userMapper{
 
     @Update("ALTER TABLE user DROP COLUMN test")
     void alterTable();
+
+    @Insert("insert into user(name,address,age,sex,phone) values (#{name},#{address},#{age},#{sex},#{phone})")
+    void insertUserList();
+
 }
