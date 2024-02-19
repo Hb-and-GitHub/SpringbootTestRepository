@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import sun.nio.ch.ThreadPool;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -67,19 +68,12 @@ public class UserController{
 
     @GetMapping()
     public List<User> getUsers(){
-        Result<Void> result = new Result<>();
-        List<User> Users = userService.get_users();
-        System.out.println(Users);
-        try {
-            List<User> usersum = Users;
-            result.setState(200);
-            result.setMessage("初始化成功");
-        } catch (Exception e) {
-            e.printStackTrace();
-            result.setState(400);
-            result.setMessage("未知错误");
-        }
-        return Users;
+        List<User> users = userService.get_users();
+        users.forEach(user -> {
+            user.setTime(LocalDateTime.now());
+        });
+        System.out.println(users);
+        return users;
     }
 
     @PostMapping("/save")
